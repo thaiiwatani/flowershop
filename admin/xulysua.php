@@ -15,8 +15,8 @@ else
 }
 echo $cid.$name.$stt.$ghichu.$trangthai;
 $sql="update danhmuchoa set tenDM='$name', stt=$stt, trangthai=$trangthai,ghichu='$ghichu' where idDM=$cid";
-mysql_query($sql);
-if(mysql_affected_rows ()>0)
+mysqli_query($connect,$sql);
+if(mysqli_affected_rows ()>0)
 {
     header("location:index.php?page=danhmuc");
 }

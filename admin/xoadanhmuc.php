@@ -7,6 +7,6 @@ if(isset($_REQUEST['cid']))
     $cid=$_REQUEST['cid'];
 }
 $sql="delete from danhmuchoa where idDM=$cid";
-mysql_query($sql);
+mysqli_query($connect,$sql);
 header("location:index.php?page=danhmuc");
 ?>

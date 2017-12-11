@@ -10,15 +10,15 @@ else
 {
     $sql="select * from hoa where idDM=$cid";
 }
-$ds=mysql_query($sql);
+$ds=mysqli_query($connect,$sql);
 ?>
 <form name ="form1" action="" method="post">
     <select name="chondm">
         <option value="-1">Tất cả</option>
         <?php
             $sql1="select * from danhmuchoa";
-            $ds1=  mysql_query($sql1);
-            while ($pt= mysql_fetch_array($ds1))
+            $ds1=  mysqli_query($connect,$sql1);
+            while ($pt= mysqli_fetch_array($ds1))
             {
                 if($pt['idDM']==$cid)
                 {
@@ -50,7 +50,7 @@ $ds=mysql_query($sql);
     <th></th>
     </tr>
     <?php
-    while ($pt = mysql_fetch_array($ds)) {
+    while ($pt = mysqli_fetch_array($ds)) {
             
     ?>
     <tr>

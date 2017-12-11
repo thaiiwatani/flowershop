@@ -7,8 +7,8 @@ if(isset ($_REQUEST['page']))
     {
         $id=$_REQUEST['id'];
         $sql="select * from hoa where idhoa=$id";
-        $ds=mysql_query($sql);
-        while ($pt=  mysql_fetch_array($ds))
+        $ds=mysqli_query($connect,$sql);
+        while ($pt=  mysqli_fetch_array($ds))
         {
             $name=$pt['tenhoa'];
             $dongia=$pt['dongia'];
@@ -44,8 +44,8 @@ if(isset ($_REQUEST['page']))
                         <select name="chondm">
                         <?php
                             $sql2="select * from danhmuchoa where idDM=.$cid";
-                            $ds2=  mysql_query($sql2);
-                            while ($pt2= mysql_fetch_array($ds2))
+                            $ds2=  mysqli_query($connect,$sql2);
+                            while ($pt2= mysqli_fetch_array($ds2))
                                 {
                                 ?>
                             <option value="<?Php echo $pt2['idDM']?>"><?php echo $pt2['tenDM']?></option>
@@ -54,8 +54,8 @@ if(isset ($_REQUEST['page']))
                         ?>
                         <?php
                          $sql1="select * from danhmuchoa where idDM !=.$cid";
-                          $ds1=  mysql_query($sql1);
-                        while ($pt= mysql_fetch_array($ds1))
+                          $ds1=  mysql_query($connect,$sql1);
+                        while ($pt= mysqli_fetch_array($ds1))
                           {
                             ?>
                         <option value="<?Php echo $pt['idDM']?>"><?php echo $pt['tenDM']?></option>

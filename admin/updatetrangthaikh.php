@@ -1,0 +1,16 @@
+<?php
+ob_start();
+include 'connect.php';
+if(isset ($_REQUEST['page']))
+    {
+    if(isset ($_REQUEST['id']))
+        {
+            $id=$_REQUEST['id'];
+            $sql="update khachhang set trangthai=1 where idKH=$id";
+            mysql_query($sql);
+            header("location:index.php?page=thongke&type=khachhangmoi");
+        }
+
+    }
+
+?>

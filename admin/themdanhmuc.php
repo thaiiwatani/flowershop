@@ -24,8 +24,8 @@ if(isset ($_REQUEST['page']))
                 $tt=0;
             }
             $sql="insert into danhmuchoa(tenDM,stt,trangthai,ghichu) values('$name',$stt,$tt,'$ghichu')";
-            mysql_query($sql);
-            if(mysql_affected_rows ()>0)
+            mysqli_query($connect,$sql);
+            if(mysqli_affected_rows()>0)
             {
                 header('location:index.php?page=danhmuc');
             }

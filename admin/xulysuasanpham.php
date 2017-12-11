@@ -20,8 +20,8 @@ else
 }
 
 $sql="update hoa set tenhoa='$name', idDM=$cid, dongia=$dongia, trangthai=$trangthai,chitiet='$chitiet',hinhanh='$tenanh' where idhoa=$id";
-mysql_query($sql);
-if(mysql_affected_rows ()>0)
+mysqli_query($connect,$sql);
+if(mysqli_affected_rows ()>0)
 {
     header("location:index.php?page=sanpham&cid=-1");
 }

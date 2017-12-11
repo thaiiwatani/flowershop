@@ -7,8 +7,8 @@ if(isset ($_REQUEST['page']))
     {
         $cid=$_REQUEST['cid'];
         $sql="select * from danhmuchoa where idDM=$cid";
-        $ds=mysql_query($sql);
-        while ($pt=  mysql_fetch_array($ds))
+        $ds=mysqli_query($connect,$sql);
+        while ($pt=  mysqli_fetch_array($ds))
         {
             $name=$pt['tenDM'];
             $stt=$pt['stt'];
