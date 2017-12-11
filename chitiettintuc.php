@@ -15,18 +15,19 @@ include 'connect.php';
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title></title>
 </head>
-<div class="center_title_bar">Trang tin tức</div>
 <?php
     while ($pt = mysql_fetch_array($ds)) {
         ?>
+    <div class="center_title_bar">Tin tức
+    </div>
     <div class="prod_box_big">
-        <div>
-            <img src="upload/<?php echo $pt['hinhanh'];  ?>" width="130px" height="130px" alt="" title="" border="0" />
+        <div style="text-align: center;">
+            <img src="upload/<?php echo $pt['hinhanh'];  ?>" width="500px" height="500px" alt="" title="" border="0" />
         </div>
-    <div class="top_prod_box_big"></div>
+        <div class="top_prod_box_big"></div>
     <div class="center_prod_box_big">
         <div class="specifications">
-        <h2><span class="blue"><?php echo $pt['tieude']?><br /></span></h2>
+            <h2><span style="color: red; padding-left: 30px;" class="blue"><?php echo $pt['tieude']?><br /></span></h2>
         <?php echo $pt['noidung']; ?>
     </div>
 

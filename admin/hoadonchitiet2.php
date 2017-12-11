@@ -1,5 +1,6 @@
 <?php
 ob_start();
+include 'checklogin.php';
 $tongtien=0;
 include 'connect.php';
 if(isset ($_REQUEST['id']))
@@ -41,7 +42,7 @@ if(isset ($_REQUEST['id']))
     <tr>
         <td colspan="5">
             <a onclick="return confirm('Bạn chắc chắn khách hàng đã thanh toán đơn hàng này?')" href="index.php?page=updatethanhtoanhoadon&id=<?php echo $id ?>">Update thanh toán</a>
-            <a onclick="return confirm('Bạn có chắc chắn hủy đơn hàng này không?')" href="index.php?page=xoahoadon&id=<?php echo $id; ?>">Xóa</a>
+            |<a onclick="return confirm('Bạn có chắc chắn hủy đơn hàng này không?')" href="index.php?page=xoahoadon&id=<?php echo $id; ?>">Xóa</a>
         </td>
     </tr>
 </table>

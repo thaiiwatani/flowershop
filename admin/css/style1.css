@@ -1,0 +1,99 @@
+
+.center_prod_box_big {
+    background: url("images/details_box_center.gif") repeat-y scroll 0 0 transparent;
+    float: left;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    width: 550px;
+    padding-left: 5px;
+}
+.product_img_big {
+    float: left;
+    padding: 5px 0 5px 10px;
+    width: 170px;
+}
+.details_big_box {
+    float: left;
+    padding: 0 0 0 15px;
+    text-align: left;
+    width: 345px;
+}
+.product_title_big {
+    color: #EA2222;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 0;
+}
+.specifications {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 18px;
+}
+/************ Sidebar Accordion Menu ************/
+
+#sidebar #main-nav {
+                width: 206px;
+                padding: 0;
+                margin: 0 0 0 15px;
+                font-family: Helvetica, Arial, sans-serif;
+                }
+
+#sidebar #main-nav li {
+                list-style: none;
+                padding-bottom: 10px;
+                text-align: right;
+                }
+
+#sidebar #main-nav li a.nav-top-item {
+                background: transparent url('../images/bg-menu-item-green.gif') right center no-repeat; /* Background image for default color scheme - green */
+                padding: 10px 15px;
+                color: #fff;
+                font-size: 14px;
+                cursor: pointer;
+                display: block;
+                text-decoration: none;
+                }
+
+#sidebar #main-nav li a.current {
+                background-image: url('../images/bg-menu-item-current.gif') !important;
+                color: #333;
+                font-weight: bold;
+                }
+
+#sidebar #main-nav li a.current:hover {
+                color: #333;
+                }
+
+#sidebar #main-nav ul {
+                padding: 0;
+                font-size: 12px;
+                margin: 0;
+                }
+
+#sidebar #main-nav ul li {
+                list-style: none;
+                margin: 0;
+                text-align: right;
+				padding: 0;
+                }
+
+#sidebar #main-nav ul li a {
+                padding: 8px 15px;
+                display: block;
+                color: #aaa;
+                font-size: 13px;
+                line-height: 1.2em;
+                }
+
+#sidebar #main-nav ul li a:hover,
+#sidebar #main-nav ul li a.current,
+#sidebar #main-nav ul li a.current:hover {
+                color: #fff;
+                }
+
+#sidebar #main-nav ul li a.current {
+                background: transparent url('../images/menu-current-arrow.gif') right center no-repeat !important;
+                }
+

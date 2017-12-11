@@ -1,6 +1,7 @@
 <?php
 ob_start();
 include 'connect.php';
+include 'checklogin.php';
 $tenhoa=$_POST['txttensp'];
 $dongia=$_POST['txtgiasp'];
 $iddm=$_POST['chondm'];
@@ -22,10 +23,10 @@ else
     {
     $ext = substr(strrchr($tenanh, '.'), 1);
     $tenanh=time().'.'.$ext;
-    move_uploaded_file($_FILES['txtanh']['tmp_name'], 'pic/'.$tenanh);
+    move_uploaded_file($_FILES['txtanh']['tmp_name'], '../upload/'.$tenanh);
     $sql="insert into hoa(tenhoa,dongia,trangthai,hinhanh,chitiet,idDM) values('$tenhoa',$dongia,$tt,'$tenanh','$chitiet',$iddm)";
-    mysqli_query($connect,$sql);
-    if(mysqli_affected_rows ()>0)
+    mysql_query($sql);
+    if(mysql_affected_rows ()>0)
     {
         header('location:index.php?page=sanpham&cid='.$iddm);
     }
@@ -35,16 +36,23 @@ else
     }
     }
 ?>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Thêm sản phẩm</title>
+<script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/ckeditor.js"></script>
+</head>
 <form name="form1" action="" method="post" enctype="multipart/form-data">
-    <table>
+    <table width="680px">
         <tr>
             <td>Chọn danh mục</td>
             <td>
                 <select name="chondm">
         <?php
             $sql1="select * from danhmuchoa";
-            $ds1=  mysqli_query($connect,$sql);;
-            while ($pt= mysqli_fetch_array($ds1))
+            $ds1=  mysql_query($sql1);
+            while ($pt= mysql_fetch_array($ds1))
             {
 ?>
         <option value="<?Php echo $pt['idDM']?>"><?php echo $pt['tenDM']?></option>
@@ -72,7 +80,11 @@ else
             <td>
                 Chi tiết
             </td>
-            <td><input type="text" name="txtchitiet"/></td>
+            <td><textarea cols="70" id="editor1" name="txtchitiet" rows="10" class="ckeditor"></textarea>
+            <script type="text/javascript">
+				CKEDITOR.replace( 'editor1' );
+            </script>
+            </td>
         </tr>
         <tr>
             <td>Hình ảnh</td>
@@ -86,3 +98,4 @@ else
 
     </table>
 </form>
+</html>

@@ -6,7 +6,7 @@ include 'checklogin.php';
 
 {
     $sql="select * from danhmuchoa order by stt asc";
-    $ds=mysqli_query($connect,$sql);
+    $ds=mysql_query($sql);
     ?>
 <table border="1" cellpadding="5">
      <tr>
@@ -17,7 +17,7 @@ include 'checklogin.php';
         <th></th>
     </tr>
     <?php
-    while ($pt=  mysqli_fetch_array($ds))
+    while ($pt=  mysql_fetch_array($ds))
     {
         ?>
     <tr>
@@ -36,7 +36,7 @@ include 'checklogin.php';
         <td><?php                    echo $pt['ghichu']?></td>
         <td>
             <a href="index.php?page=suadanhmuc&cid=<?php echo $pt['idDM'] ?>">Sửa</a>
-            <a href="index.php?page=xoadanhmuc&cid=<?php echo $pt['idDM'] ?>">Xóa</a>
+            <a onclick="return confirm('Bạn có chắc chắn muốn xóa danh mục này không?')" href="index.php?page=xoadanhmuc&cid=<?php echo $pt['idDM'] ?>">Xóa</a>
         </td>
     </tr>
     <?php }?>

@@ -1,6 +1,7 @@
 <?php
 ob_start();
 include 'connect.php';
+include 'checklogin.php';
 if(isset ($_REQUEST['page']))
     {
     if(isset ($_REQUEST['id']))

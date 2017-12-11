@@ -1,6 +1,7 @@
 <?php
 ob_start();
 include 'connect.php';
+include 'checklogin.php';
 $id=$_POST['id'];
 $tieude=$_POST['txttieude'];
 $noidung=$_POST['txtnoidung'];

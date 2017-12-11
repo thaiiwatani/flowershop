@@ -1,6 +1,7 @@
 <?php
 ob_start();
 include 'connect.php';
+include 'checklogin.php';
 $cid=$_REQUEST['cid'];
 if($cid==-1)
 {
@@ -13,11 +14,14 @@ else
     $ds=mysql_query($sql);
     $sopt=mysql_num_rows($ds);
     $sotrang=ceil($sopt/3);
+    if($sotrang>1)
+    {
     for($i=1;$i<=$sotrang;$i++)
     {
         ?>
 <a href="#" onclick="showsp(<?php echo $cid ?>,<?php echo $i ?>)"><?php echo $i ?></a>
 <?php
+    }
     }
 
     if(isset($_REQUEST['trang']))
@@ -50,7 +54,7 @@ else
     ?>
     <tr>
         <td><?php echo $pt['tenhoa'] ?></td>
-        <td><?php echo $pt['dongia'] ?></td>
+        <td style="text-align: right;"><?php echo number_format($pt['dongia'],0,'','.') ?>VNĐ</td>
         <td><?php
             if($pt['trangthai']==1)
             {
@@ -61,7 +65,7 @@ else
             }
             ?>
         </td>
-        <Td><textarea name="txtghichu" value="" rows="6" cols="25"><?php echo $pt['chitiet']; ?> </textarea> </Td>
+        <td><?php echo $pt['chitiet']; ?></td>
         <td><img src="../upload/<?php echo $pt['hinhanh']; ?>" width="80px" height="80px"/></td>
         <td>
             <a href="index.php?page=suasanpham&id=<?php echo $pt['idhoa'] ?>">Sửa</a>

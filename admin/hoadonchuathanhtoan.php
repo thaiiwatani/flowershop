@@ -1,9 +1,10 @@
 <?php
 ob_start();
+include 'checklogin.php';
 include 'connect.php';
 if(isset($_REQUEST['type']))
     {
-    $sql="select * from hoadon where thanhtoan=0 order by idHD desc";
+    $sql="select * from hoadon where thanhtoan=0 and trangthai=1 order by idHD desc";
     $ds=mysql_query($sql);
     ?>
 <table border="1" cellpadding="5" width="650">
@@ -26,7 +27,7 @@ if(isset($_REQUEST['type']))
         <td><?php echo $pt['diachi']?></td>
         <td><?php echo $pt['dienthoai']?></td>
         <td><?php echo $pt['email']?></td>
-        <td><?php echo $pt['tongtien']?></td>
+        <td><?php echo number_format($pt['tongtien'],0,'','.')?>đ</td>
         <td>
             <a href="index.php?page=hoadonchitiet2&id=<?php echo $pt['idHD'] ?>">Xem chi tiết</a>
         </td>

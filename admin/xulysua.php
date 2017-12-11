@@ -1,6 +1,7 @@
 <?php
 ob_start();
 include 'connect.php';
+include 'checklogin.php';
 $cid=$_POST['cid'];
 $name=$_POST['txtname'];
 $stt=$_POST['txtstt'];
@@ -15,8 +16,8 @@ else
 }
 echo $cid.$name.$stt.$ghichu.$trangthai;
 $sql="update danhmuchoa set tenDM='$name', stt=$stt, trangthai=$trangthai,ghichu='$ghichu' where idDM=$cid";
-mysqli_query($connect,$sql);
-if(mysqli_affected_rows ()>0)
+mysql_query($sql);
+if(mysql_affected_rows ()>0)
 {
     header("location:index.php?page=danhmuc");
 }

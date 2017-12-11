@@ -3,10 +3,33 @@ ob_start();
 include 'connect.php';
 $sql="select * from tintuc";
 $ds=mysql_query($sql);
-?>
+$tongso=  mysql_num_rows($ds);
+$spt=6;
+$sotrang=  ceil($tongso/$spt);
+if($sotrang>1)
+    {
+    for($i=1;$i<=$sotrang;$i++)
+        {
+            ?>
+             <a href="index.php?page=timhieu&trang=<?php  echo $i ?>">Trang<?php  echo $i ?></a>
+             <?php
+        }
+    }
+            if(isset($_REQUEST['trang']))
+            {
+            $trang=$_REQUEST['trang'];
+            $batdau=($trang-1)*$spt;
+            }
+            else
+            {
+             $batdau=0;
+            }
+            $sql1=$sql." limit $batdau,$spt";
+            $ds1=  mysql_query($sql1);
+              ?>
 <div class="center_title_bar">Trang tin tức</div>
 <?php
-while ($pt = mysql_fetch_array($ds)) {
+while ($pt = mysql_fetch_array($ds1)) {
 ?>
 
 

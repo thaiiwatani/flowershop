@@ -2,6 +2,10 @@
 ob_start();
 session_start();
 include 'connect.php';
+if(isset ($_POST['huy']))
+        {
+    header('location:xoagiohang.php');
+        }
 if(isset($_POST['btnadd']))
 {
     $ten=$_POST['txtname'];

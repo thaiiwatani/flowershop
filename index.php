@@ -187,7 +187,7 @@ include 'connect.php';
      </div>
      <div class="banner_adds">
 
-     <a href="#"><img src="images/bann2.jpg" alt="" title="" border="0" /></a>
+     <a href="http://www.ursp.biz/vn_index/index.html"><img src="images/bann2.gif" alt="" title="" border="0" /></a>
      </div> 
 
 
@@ -228,6 +228,12 @@ include 'connect.php';
                                 break;
                             case 'dangnhap':
                                 include 'dangnhap.php';
+                                break;
+                            case 'dangky':
+                                include 'dangky.php';
+                                break;
+                            case 'dangxuat':
+                                include 'dangxuat.php';
                                 break;
                             case 'huongdan':
                                 include 'huongdan.php';
@@ -286,7 +292,7 @@ include 'connect.php';
             <div class="cart_details">
             <a href="index.php?page=doimatkhau&id=<?php echo $_SESSION['user_id']  ?>">Đổi mật khẩu</a> <br />
             <br />
-            <a  onclick="return confirm('Bạn có chắc chắn muốn thoát')" href="index.php?page=dangxuat&id=<?php echo $_SESSION['user_id']  ?>">Đăng xuất</a>
+            <a  onclick="return confirm('Bạn có chắc chắn muốn thoát')" href="index.php?page=dangxuat">Đăng xuất</a>
             </div>
 
             <div class="cart_icon"><a href="index.php?page=thongtincanhan&id=<?php echo $_SESSION['user_id']  ?>" title="header=[Thông tin cá nhân] body=[&nbsp;] fade=[on]" >
@@ -336,7 +342,7 @@ include 'connect.php';
 
      <div class="banner_adds">
 
-     <a href="#"><img src="images/bann1.jpg" alt="" title="" border="0" /></a>
+     <a href="http://www.eva.vn/"><img src="images/bann1.jpg" alt="" title="" border="0" /></a>
      </div>
 
    </div><!-- end of right content -->

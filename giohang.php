@@ -46,7 +46,7 @@ if(isset($_SESSION['cart']))
         <td><?php echo $giohang['ten']?></td>
         <td><img src="upload/<?php echo $giohang['hinhanh']?>" width="50px" height="50px"/></td>
         <td style="text-align:right;"><?php echo number_format($giohang['gia'],0,'','.')?> VNĐ</td>
-        <td><input style="width: 50px; text-align: right;" type="text" value="<?php echo $giohang['soluong']?>" name="txt[<?php echo $giohang['ma']?>]"/></td>
+        <td><input style="width: 50px; text-align: right; padding-right: 5px;" type="text" value="<?php echo $giohang['soluong']?>" name="txt[<?php echo $giohang['ma']?>]"/></td>
         <td style="text-align:right;"><?php echo number_format($giohang['gia']*$giohang['soluong'],0,'','.')?> VNĐ</td>
         <td style="text-align:right;"><a onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này trong giỏ hàng không?')" href="xoagiohang.php?id=<?php echo $giohang['ma']?>">Xóa</a></td>
     </tr>
