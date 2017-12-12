@@ -7,8 +7,8 @@ if(isset($_REQUEST['id']))
     $id=$_REQUEST['id'];
 }
 $sql="delete from hoadon where idHD=$id";
-mysql_query($sql);
+mysqli_query($connect,$sql);
 $sql1="delete from hoadonchitiet where idHD=$id";
-mysql_query($sql1);
+mysqli_query($connect,$sql1);
 header("location:index.php?page=hoadon");
 ?>

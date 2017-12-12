@@ -18,8 +18,8 @@ if($tenanh=='')
 else{
 $sql="update khuyenmai set thongtin='$thongtin',chietkhau='$chietkhau', hinhanh='$anh1' where idkhuyenmai=$id";
 }
-mysql_query($sql);
-if(mysql_affected_rows ()>0)
+mysqli_query($connect,$sql);
+if(mysqli_affected_rows($connect)>0)
 {
     header("location:index.php?page=khuyenmai");
 }

@@ -41,8 +41,8 @@ if(isset($_POST['dangky']))
         $sql="insert into khachhang(user,pass,tenKH,diachi,dienthoai,email,ngaysinh) values('$user','$pass','$tenKH','$diachi','$dienthoai','$email','$ngaysinh')";
 		
 		
-        mysql_query($sql);
-        if(mysql_affected_rows()>0)
+        mysqli_query($connect,$sql);
+        if(mysqli_affected_rows($connect)>0)
            {
             header("location:index.php?page=dangnhap");
            }

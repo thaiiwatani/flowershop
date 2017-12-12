@@ -4,9 +4,10 @@
 ?>
 <div class="center_title_bar">Sản phẩm mới</div>
         <?php
-        $sql = "SELECT hoa.hinhanh as hinhanh1,dongia,chietkhau,tenhoa,chitiet,idhoa FROM hoa join khuyenmai on hoa.idkhuyenmai=khuyenmai.idkhuyenmai where `trangthai` = 1 order by idhoa desc limit 6 ";
-        $ds=mysql_query($sql);
-        while ($pt=mysql_fetch_array($ds))
+        $sql = "SELECT hoa.hinhanh as hinhanh1,dongia,chietkhau,tenhoa,chitiet,idhoa FROM hoa join khuyenmai on hoa.idkhuyenmai=khuyenmai.idkhuyenmai where khuyenmai.trangthai = 1 order by idhoa desc limit 6 ";
+//        $sql="select * from hoa order by idhoa desc limit 6";
+        $ds=mysqli_query($connect,$sql);
+        while($pt= mysqli_fetch_array($ds))
             {      
         ?>
 
@@ -35,10 +36,10 @@
  <?php
  $sql1="select hoa.dongia as giagoc, hoa.hinhanh as hinhanh2, hoa.idhoa,tenhoa,sum(soluong) as tong, trangthai,chietkhau
         from hoa join hoadonchitiet on hoa.idhoa=hoadonchitiet.idhoa join khuyenmai on khuyenmai.idkhuyenmai=hoa.idkhuyenmai
-        where trangthai=1
+        where khuyenmai.trangthai = 1
         group by hoa.idhoa order by tong desc limit 3";
- $ds1=mysql_query($sql1);
- while ($pt1 = mysql_fetch_array($ds1)) {
+ $ds1=mysqli_query($connect,$sql1);
+ while ($pt1 =mysqli_fetch_array($ds1)) {
      ?>
  <div class="prod_box">
         	<div class="top_prod_box"></div>

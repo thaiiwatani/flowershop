@@ -7,7 +7,7 @@ include 'connect.php';
         {
         $id=$_REQUEST['id'];
         $sql="select * from tintuc where idtintuc=$id";
-        $ds=mysql_query($sql);
+        $ds=mysqli_query($connect,$sql);
         ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -16,7 +16,7 @@ include 'connect.php';
 <title></title>
 </head>
 <?php
-    while ($pt = mysql_fetch_array($ds)) {
+    while ($pt = mysqli_fetch_array($ds)) {
         ?>
     <div class="center_title_bar">Tin tức
     </div>

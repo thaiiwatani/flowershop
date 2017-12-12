@@ -5,8 +5,8 @@ include 'checklogin.php';
 if(isset ($_REQUEST['type']))
     {
     $sql="select * from hoa order by idhoa desc";
-    $ds=mysql_query($sql);
-    $tongso=  mysql_num_rows($ds);
+    $ds=mysqli_query($connect,$sql);
+    $tongso=  mysqli_num_rows($ds);
     $spt=4;
     $sotrang=  ceil($tongso/$spt);
 
@@ -20,7 +20,7 @@ if(isset ($_REQUEST['type']))
              $batdau=0;
             }
             $sql1=$sql." limit $batdau,$spt";
-            $ds1=  mysql_query($sql1);
+            $ds1=  mysqli_query($connect,$sql1);
     ?>
 <table border="1" cellpadding="5">
     <caption>
@@ -34,7 +34,7 @@ if(isset ($_REQUEST['type']))
     <th>Hình ảnh</th>
     </tr>
 <?php
-    while ($pt = mysql_fetch_array($ds1)) {
+    while ($pt = mysqli_fetch_array($ds1)) {
         ?>
     <tr>
         <td><?php echo $pt['tenhoa'] ?></td>

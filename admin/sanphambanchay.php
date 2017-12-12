@@ -5,8 +5,8 @@ include 'connect.php';
 include 'checklogin.php';
 $sql="select hoa.idhoa,tenhoa,sum(soluong) as tong,hinhanh,chitiet
     from hoa join hoadonchitiet on hoa.idhoa=hoadonchitiet.idhoa group by hoa.idhoa order by tong desc";
-$ds=mysql_query($sql);
-$tongso=  mysql_num_rows($ds);
+$ds=mysqli_query($connect,$sql);
+$tongso=  mysqli_num_rows($ds);
 $spt=4;
 $sotrang=  ceil($tongso/$spt);
 
@@ -20,7 +20,7 @@ $sotrang=  ceil($tongso/$spt);
              $batdau=0;
             }
             $sql1=$sql." limit $batdau,$spt";
-            $ds1=  mysql_query($sql1);
+            $ds1=  mysqli_query($connect,$sql1);
 ?>
 <table border="1" cellpadding="5" width="650">
     <caption>Thống kê các sản phẩm bán chạy</caption>
@@ -31,7 +31,7 @@ $sotrang=  ceil($tongso/$spt);
         <th>Số lượng bán ra</th>
     </tr>
 <?php
-while($pt=mysql_fetch_array($ds1))
+while($pt=mysqli_fetch_array($ds1))
     {
     ?>
     <tr>

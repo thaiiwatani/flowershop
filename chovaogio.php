@@ -14,9 +14,9 @@ if(isset($_SESSION['cart'][$id]))
 else
 {
     $sql = "SELECT hoa.hinhanh as hinhanh1,dongia,chietkhau,tenhoa,chitiet,idhoa
-    FROM hoa join khuyenmai on hoa.idkhuyenmai=khuyenmai.idkhuyenmai where idhoa = $id and trangthai = 1";
-    $ds=mysql_query($sql);
-    while ($pt=  mysql_fetch_array($ds))
+    FROM hoa join khuyenmai on hoa.idkhuyenmai=khuyenmai.idkhuyenmai where idhoa = $id and khuyenmai.trangthai = 1";
+    $ds=mysqli_query($connect,$sql);
+    while ($pt=  mysqli_fetch_array($ds))
     {
         $tenhoa=$pt['tenhoa'];
         $hinhanh=$pt['hinhanh1'];

@@ -13,8 +13,8 @@ else
     {
     $id=$_SESSION['user_id'];
     $sql="select * from khachhang where idKH=$id";
-    $ds=mysql_query($sql);
-    while ($pt = mysql_fetch_array($ds)) {
+    $ds=mysqli_query($connect,$sql);
+    while ($pt = mysqli_fetch_array($ds)) {
         ?>
 <form name="form1" action="xulyhoadon.php" method="post">
     <table padding-left="25px" cellpadding="5" cellspacing="0" bgcolor="white" width="554px">

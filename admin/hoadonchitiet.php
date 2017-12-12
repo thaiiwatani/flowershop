@@ -9,7 +9,7 @@ if(isset ($_REQUEST['id']))
     $sql="select tenhoa, soluong, hoadonchitiet.dongia as dongia1, hinhanh,idHD
     from hoadonchitiet join hoa on hoa.idhoa=hoadonchitiet.idhoa
     where idHD=$id";
-    $ds=mysql_query($sql);
+    $ds=mysqli_query($connect,$sql);
     ?>
 <table border="0" cellpadding="5">
     <tr>
@@ -21,7 +21,7 @@ if(isset ($_REQUEST['id']))
         <th></th>
     </tr>
 <?php
-    while ($pt = mysql_fetch_array($ds)) {
+    while ($pt = mysqli_fetch_array($ds)) {
         $tongtien+=$pt['dongia1']*$pt['soluong'];
         ?>
     <tr>

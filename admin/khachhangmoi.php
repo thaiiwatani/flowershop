@@ -5,7 +5,7 @@ include 'checklogin.php';
 if(isset($_REQUEST['type']))
     {
     $sql="select * from khachhang where trangthai=0";
-    $ds=mysql_query($sql);
+    $ds=mysqli_query($connect,$sql);
     ?>
 <table border="1" cellpadding="5" width="650">
     <caption>Khách hàng</caption>
@@ -20,7 +20,7 @@ if(isset($_REQUEST['type']))
     <th></th>
     </tr>
 <?php
-    while ($pt = mysql_fetch_array($ds)) {
+    while ($pt = mysqli_fetch_array($ds)) {
         ?>
     <tr>
         <td><?php echo $pt['user']?></td>

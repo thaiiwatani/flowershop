@@ -1,5 +1,5 @@
 <?php
-ob_start();
+//ob_start();
 include 'connect.php';
 include 'checklogin.php';
 $tieude=$_POST['txttieude'];
@@ -17,8 +17,8 @@ else
     $tenanh=time().'.'.$ext;
     move_uploaded_file($_FILES['txtanh']['tmp_name'], '../upload/'.$tenanh);
     $sql="insert into tintuc(tieude,noidung,hinhanh,ngaydang) values('$tieude','$noidung','$tenanh',NOW())";
-    mysql_query($sql);
-    if(mysql_affected_rows ()>0)
+    mysqli_query($connect,$sql);
+    if(mysqli_affected_rows($connect)>0)
     {
         header('location:index.php?page=tintuc');
     }

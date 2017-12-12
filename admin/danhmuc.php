@@ -6,7 +6,7 @@ include 'checklogin.php';
 
 {
     $sql="select * from danhmuchoa order by stt asc";
-    $ds=mysql_query($sql);
+    $ds=mysqli_query($connect,$sql);
     ?>
 <table border="1" cellpadding="5">
      <tr>
@@ -17,7 +17,7 @@ include 'checklogin.php';
         <th></th>
     </tr>
     <?php
-    while ($pt=  mysql_fetch_array($ds))
+    while ($pt= mysqli_fetch_array($ds))
     {
         ?>
     <tr>

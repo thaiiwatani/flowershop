@@ -40,8 +40,8 @@ xmlhttp.send();
         <option value="-1">Tất cả</option>
         <?php
             $sql1="select * from danhmuchoa";
-            $ds1=  mysql_query($sql1);
-            while ($pt= mysql_fetch_array($ds1))
+            $ds1=  mysqli_query($connect,$sql1);
+            while ($pt= mysqli_fetch_array($ds1))
             {
 
             ?>

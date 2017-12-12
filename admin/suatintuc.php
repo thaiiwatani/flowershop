@@ -8,8 +8,8 @@ if(isset ($_REQUEST['page']))
     {
         $id=$_REQUEST['id'];
         $sql="select * from tintuc where idtintuc=$id";
-        $ds=mysql_query($sql);
-        while ($pt=  mysql_fetch_array($ds))
+        $ds=mysqli_query($connect,$sql);
+        while ($pt=  mysqli_fetch_array($ds))
         {
             $tieude=$pt['tieude'];
             $noidung=$pt['noidung'];

@@ -11,8 +11,8 @@ else
 {
     $sql="select * from hoa where idDM=$cid order by idhoa desc";
 }
-    $ds=mysql_query($sql);
-    $sopt=mysql_num_rows($ds);
+    $ds=mysqli_query($connect,$sql);
+    $sopt=mysqli_num_rows($ds);
     $sotrang=ceil($sopt/3);
     if($sotrang>1)
     {
@@ -34,7 +34,7 @@ else
             $batdau=0;
             }
     $sql1=$sql." limit $batdau,3";
-    $ds1=mysql_query($sql1);
+    $ds1=mysqli_query($connect,$sql1);
        ?>
 <br />
 <a href="index.php?page=themsanpham">Thêm mới sản phẩm</a>
@@ -48,8 +48,8 @@ else
     <th></th>
     </tr>
     <?php
-    if(mysql_num_rows($ds1)>0){
-    while ($pt = mysql_fetch_array($ds1)) {
+    if(mysqli_num_rows($ds1)>0){
+    while ($pt = mysqli_fetch_array($ds1)) {
 
     ?>
     <tr>

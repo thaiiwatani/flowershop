@@ -7,14 +7,14 @@
             if($cid=="-1")
                 {
                 $sql="select tenhoa,idhoa,hoa.hinhanh as hinhanh1,chietkhau,dongia
-                    from hoa join khuyenmai on hoa.idkhuyenmai=khuyenmai.idkhuyenmai where `trangthai` = 1";
+                    from hoa join khuyenmai on hoa.idkhuyenmai=khuyenmai.idkhuyenmai where khuyenmai.trangthai = 1";
                 }
                 else {
-                                $sql="select tenhoa,idhoa,hoa.hinhanh as hinhanh1,chietkhau,dongia
-                    from hoa join khuyenmai on hoa.idkhuyenmai=khuyenmai.idkhuyenmai where idDM=$cid and `trangthai` = 1";
+                $sql="select tenhoa,idhoa,hoa.hinhanh as hinhanh1,chietkhau,dongia
+                    from hoa join khuyenmai on hoa.idkhuyenmai=khuyenmai.idkhuyenmai where idDM=$cid and khuyenmai.trangthai = 1";
                 }
-            $ds=mysql_query($sql);
-            $tongso=  mysql_num_rows($ds);
+            $ds=mysqli_query($connect,$sql);
+            $tongso= mysqli_num_rows($ds);
             $spt=7;
             $sotrang=  ceil($tongso/$spt);
             if($sotrang>1){
@@ -35,7 +35,7 @@
              $batdau=0;
             }
             $sql1=$sql." limit $batdau,$spt";
-            $ds1=  mysql_query($sql1);
+            $ds1=  mysqli_query($connect,$sql1);
               ?>
 
 <html>
@@ -46,7 +46,7 @@
     </head>
             <div class="center_title_bar">Sản phẩm</div>
             <?php
-            while ($pt=mysql_fetch_array($ds1))
+            while ($pt=mysqli_fetch_array($ds1))
                 {
                   ?>  <div class="prod_box">
         	<div class="top_prod_box"></div>
