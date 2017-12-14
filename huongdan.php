@@ -6,7 +6,7 @@ include 'connect.php';
     if(isset ($_REQUEST['page']))
         {
         $sql="select * from tintuc where idtintuc=4";
-        $ds=mysqli_query($connect,$sql);
+        $ds=mysql_query($sql);
         ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -16,7 +16,7 @@ include 'connect.php';
 </head>
 <div class="center_title_bar">Hướng dẫn mua hàng</div>
 <?php
-    while ($pt = mysqli_fetch_array($ds)) {
+    while ($pt = mysql_fetch_array($ds)) {
         ?>
     <div class="prod_box_big">
         <div>

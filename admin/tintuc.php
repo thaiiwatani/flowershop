@@ -3,8 +3,8 @@ ob_start();
 include 'connect.php';
 include 'checklogin.php';
 $sql="select * from tintuc order by idtintuc desc";
-    $ds=mysqli_query($connect,$sql);
-    $tongso=  mysqli_num_rows($ds);
+    $ds=mysql_query($sql);
+    $tongso=  mysql_num_rows($ds);
 $spt=3;
 $sotrang=  ceil($tongso/$spt);
 
@@ -18,7 +18,7 @@ $sotrang=  ceil($tongso/$spt);
              $batdau=0;
             }
             $sql1=$sql." limit $batdau,$spt";
-            $ds1=  mysqli_query($connect,$sql1);
+            $ds1=  mysql_query($sql1);
               ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -30,23 +30,23 @@ $sotrang=  ceil($tongso/$spt);
 </head>
     <div class="giua">
         <?php
-        if(mysqli_num_rows($ds1)>0){
-        while ($pt = mysqli_fetch_array($ds1)) {
+        if(mysql_num_rows($ds1)>0){
+        while ($pt = mysql_fetch_array($ds1)) {
         ?>
 <div class="center_prod_box_big">
-    <div class="product_img_big">
-        <img src="../upload/<?php echo $pt['hinhanh'];  ?>" width="130px" height="130px" alt="" title="" border="0" />                                                             <br />
+							 <div class="product_img_big">
+                                                             <img src="../upload/<?php echo $pt['hinhanh'];  ?>" width="130px" height="130px" alt="" title="" border="0" />                                                             <br />
 
-    </div>
-    <div class="details_big_box">
-        <div class="product_title_big"><?php echo $pt['tieude']?></div>
-        <br />
-        <?php echo substr(strip_tags($pt["noidung"],'<br>'),0,250)."..."; ?>
-        <br />
+                                                         </div>
+								 <div class="details_big_box">
+									 <div class="product_title_big"><?php echo $pt['tieude']?></div>
+                                                                         <br />
+                                                                         <?php echo substr(strip_tags($pt["noidung"],'<br>'),0,250)."..."; ?>
+                                                                         <br />
 
-        <a href="index.php?page=chitiettintuc&id=<?php echo $pt['idtintuc']?>">Chi tiết</a>
+									 <a href="index.php?page=chitiettintuc&id=<?php echo $pt['idtintuc']?>">Chi tiết</a>
 
-    </div>
+								 </div>
 
 </div>
 <div class="suaxoa">

@@ -7,9 +7,9 @@ if (isset($_REQUEST['id']))
 
 
 $sql = "SELECT hoa.hinhanh as hinhanh1,dongia,chietkhau,tenhoa,chitiet,idhoa
-        FROM hoa join khuyenmai on hoa.idkhuyenmai=khuyenmai.idkhuyenmai where idhoa = $id and khuyenmai.trangthai = 1";
-$ds = mysqli_query($connect,$sql);
-$pt= mysqli_fetch_array($ds);
+        FROM hoa join khuyenmai on hoa.idkhuyenmai=khuyenmai.idkhuyenmai where idhoa = $id and `trangthai` = 1";
+$ds = mysql_query($sql);
+$pt= mysql_fetch_array($ds);
 $giakm=$pt['dongia']*(100-$pt['chietkhau'])/100;
 
 
@@ -67,11 +67,11 @@ $giakm=$pt['dongia']*(100-$pt['chietkhau'])/100;
 					<?php
 					$sql2= "select hoa.hinhanh as hinhanh1,dongia,chietkhau,tenhoa,chitiet,idhoa FROM hoa join khuyenmai on hoa.idkhuyenmai=khuyenmai.idkhuyenmai
 								where `dongia` between ($giakm * 0.8) and ($giakm * 1.2)
-										and khuyenmai.trangthai = 1
+										and `trangthai` = 1
 										and idhoa not like '$id'
 										limit 3";
-					$ds2= mysqli_query($connect,$sql2);
-					while($pt2=mysqli_fetch_array($ds2))
+					$ds2= mysql_query($sql2);
+					while($pt2=mysql_fetch_array($ds2))
 					{
 					?>
 						<div class="prod_box">

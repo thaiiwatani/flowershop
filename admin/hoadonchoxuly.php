@@ -5,7 +5,7 @@ include 'connect.php';
 if(isset($_REQUEST['type']))
     {
     $sql="select * from hoadon where trangthai=0 order by idHD desc";
-    $ds=mysqli_query($connect,$sql);
+    $ds=mysql_query($sql);
 ?>
 <table border="1" cellpadding="5" width="650">
     <caption>Hóa đơn chờ xử lý</caption>
@@ -19,7 +19,7 @@ if(isset($_REQUEST['type']))
     <th></th>
     </tr>
 <?php
-    while ($pt = mysqli_fetch_array($ds)) {
+    while ($pt = mysql_fetch_array($ds)) {
         ?>
     <tr>
         <td><?php echo $pt['tenKH']?></td>

@@ -8,7 +8,7 @@ if(isset ($_REQUEST['page']))
         {
             $id=$_REQUEST['id'];
             $sql="update khachhang set trangthai=1 where idKH=$id";
-            mysqli_query($connect,$sql);
+            mysql_query($sql);
             header("location:index.php?page=thongke&type=khachhangmoi");
         }
 

@@ -7,10 +7,10 @@
 		if($_POST['txtuser']!='' && $_POST['txtpass']!='')
 		{
 			$user=$_POST['txtuser'];
-                        $pass=$_POST['txtpass'];
+       		$pass=$_POST['txtpass'];
 			$sql="select * from admin where user='$user' and pass='$pass'";
-			$ds=mysqli_query($connect,$sql);
-			if(mysqli_num_rows($ds)>0)
+			$ds=mysql_query($sql);
+			if(mysql_num_rows($ds)>0)
 			{
 				$_SESSION['admin']=1;
 			   	$_SESSION['username']=$user;

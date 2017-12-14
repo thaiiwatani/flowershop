@@ -1,5 +1,5 @@
 <?php
-if(session_status()==PHP_SESSION_NONE) session_start();
+ob_start();
 include 'connect.php';
 if(isset ($_SESSION['user']))
     {
@@ -32,12 +32,12 @@ else
               $user=$_POST['user'];
               $pass=md5($_POST['pass']);
               $sql="select * from khachhang where user='$user' and pass='$pass'";
-              $ds=mysqli_query($connect,$sql);
-              while ($pt = mysqli_fetch_array($ds)) {
+              $ds=mysql_query($sql);
+              while ($pt = mysql_fetch_array($ds)) {
                   $idKH=$pt['idKH'];
 
               }
-              if(mysqli_num_rows($ds)>0)
+              if(mysql_num_rows($ds)>0)
               {	 $_SESSION['user']=$user;
                  $_SESSION['user_id']=$idKH;
                  if(isset($_SESSION['cart']))

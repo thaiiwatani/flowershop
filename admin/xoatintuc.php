@@ -7,6 +7,6 @@ if(isset($_REQUEST['id']))
     $id=$_REQUEST['id'];
 }
 $sql="delete from tintuc where idtintuc=$id";
-mysqli_query($connect,$sql);
+mysql_query($sql);
 header("location:index.php?page=tintuc");
 ?>

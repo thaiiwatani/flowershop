@@ -153,8 +153,8 @@ include 'connect.php';
         <ul class="left_menu">
             <?php
                 $sql1="select * from danhmuchoa where `trangthai` = 1 order by stt asc";
-                $ds1=mysqli_query($connect,$sql1);
-                while($pt1=mysqli_fetch_array($ds1))
+                $ds1=mysql_query($sql1);
+                while($pt1=mysql_fetch_array($ds1))
                     {
                     ?>
 
@@ -172,8 +172,8 @@ include 'connect.php';
 
         <?php
         $sql = "SELECT hoa.hinhanh as hinhanh1,dongia,chietkhau,tenhoa,chitiet,idhoa FROM hoa join khuyenmai on hoa.idkhuyenmai=khuyenmai.idkhuyenmai where `trangthai` = 1 order by idhoa desc limit 1 ";
-        $ds=mysqli_query($connect,$sql);
-        while ($pt=mysqli_fetch_array($ds))
+        $ds=mysql_query($sql);
+        while ($pt=mysql_fetch_array($ds))
             {
         ?>
          <div class="product_title"><a href="index.php?page=chitiethoa&id=<?php echo $pt['idhoa'];?>"><?php echo $pt['tenhoa'] ?></a></div>

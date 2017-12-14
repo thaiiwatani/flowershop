@@ -8,7 +8,7 @@ if(isset ($_REQUEST['page']))
         {
             $id=$_REQUEST['id'];
             $sql="update hoadon set trangthai=1 where idHD=$id";
-            mysqli_query($connect,$sql);
+            mysql_query($sql);
             header("location:index.php?page=hoadon&type=hoadonchoxuly");
         }
 

@@ -25,8 +25,8 @@ else
     $tenanh=time().'.'.$ext;
     move_uploaded_file($_FILES['txtanh']['tmp_name'], '../upload/'.$tenanh);
     $sql="insert into hoa(tenhoa,dongia,trangthai,hinhanh,chitiet,idDM) values('$tenhoa',$dongia,$tt,'$tenanh','$chitiet',$iddm)";
-    mysqli_query($connect,$sql);
-    if(mysqli_affected_rows($connect)>0)
+    mysql_query($sql);
+    if(mysql_affected_rows ()>0)
     {
         header('location:index.php?page=sanpham&cid='.$iddm);
     }
@@ -51,8 +51,8 @@ else
                 <select name="chondm">
         <?php
             $sql1="select * from danhmuchoa";
-            $ds1=  mysqli_query($connect,$sql1);
-            while ($pt= mysqli_fetch_array($ds1))
+            $ds1=  mysql_query($sql1);
+            while ($pt= mysql_fetch_array($ds1))
             {
 ?>
         <option value="<?Php echo $pt['idDM']?>"><?php echo $pt['tenDM']?></option>
